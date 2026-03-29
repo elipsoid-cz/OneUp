@@ -11,62 +11,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install xcodegen
-        run: brew install xcodegen
+      - name: Install dependencies
+        run: brew install xcodegen create-dmg
 
       - name: Generate Xcode project
         run: xcodegen generate
 
-      - name: Import signing certificate
-        env:
-          CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}
-          CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
-          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
-        run: |
-          KEYCHAIN_PATH=$RUNNER_TEMP/signing.keychain-db
-          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
-          security set-keychain-settings -lut 21600 "$KEYCHAIN_PATH"
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
-          echo "$CERTIFICATE_BASE64" | base64 --decode > /tmp/cert.p12
-          security import /tmp/cert.p12 -P "$CERTIFICATE_PASSWORD" \
-            -A -t cert -f pkcs12 -k "$KEYCHAIN_PATH"
-          security list-keychain -d user -s "$KEYCHAIN_PATH"
-
       - name: Build & Archive
-        env:
-          DEVELOPMENT_TEAM: ${{ secrets.DEVELOPMENT_TEAM }}
         run: |
           xcodebuild archive \
             -project OneUp.xcodeproj \
             -scheme OneUp \
             -configuration Release \
             -archivePath build/OneUp.xcarchive \
-            DEVELOPMENT_TEAM="$DEVELOPMENT_TEAM" \
-            CODE_SIGN_STYLE=Manual \
-            CODE_SIGN_IDENTITY="Developer ID Application" | xcpretty
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=YES | xcpretty
 
-      - name: Export & Notarize
-        env:
-          APPLE_ID: ${{ secrets.APPLE_ID }}
-          APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
-          DEVELOPMENT_TEAM: ${{ secrets.DEVELOPMENT_TEAM }}
+      - name: Export app
         run: |
           xcodebuild -exportArchive \
             -archivePath build/OneUp.xcarchive \
             -exportPath build/export \
             -exportOptionsPlist scripts/ExportOptions.plist
 
-          xcrun notarytool submit build/export/OneUp.app \
-            --apple-id "$APPLE_ID" \
-            --password "$APPLE_APP_PASSWORD" \
-            --team-id "$DEVELOPMENT_TEAM" \
-            --wait
-
-          xcrun stapler staple build/export/OneUp.app
-
       - name: Create DMG
         run: |
-          brew install create-dmg
           create-dmg \
             --volname "OneUp" \
             --window-size 540 380 \

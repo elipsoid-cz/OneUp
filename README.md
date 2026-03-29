@@ -11,7 +11,7 @@ A tiny macOS app that adds a **Go Up** button to the Finder toolbar — one clic
 - Replicates ⌘↑ exactly: navigates the current window, no new tabs
 - Works in **Open / Save dialogs** (same extension, separate instance)
 - Zero background processes — the extension is loaded on demand by macOS
-- Signed, sandboxed, open source
+- Sandboxed extension, open source, MIT license
 
 ## Requirements
 
@@ -26,6 +26,11 @@ A tiny macOS app that adds a **Go Up** button to the Finder toolbar — one clic
 3. Launch **OneUp** and click **Open Extensions Settings**
 4. Enable **OneUp** under *General → Login Items & Extensions → Finder Extensions*
 5. In Finder, choose **View → Customize Toolbar…** and drag the **Go Up** button wherever you like
+
+> **Gatekeeper warning:** OneUp is not yet signed with an Apple Developer certificate. On first launch macOS may block it. Right-click the app → **Open** → **Open Anyway**, or run:
+> ```bash
+> xattr -cr /Applications/OneUp.app
+> ```
 
 ### Option B — Build from source
 

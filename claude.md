@@ -6,6 +6,7 @@ macOS Finder Sync Extension — toolbar tlačítko „Go Up" pro navigaci do nad
 
 - **Main app** (`OneUp/`) — SwiftUI onboarding UI + instalace AppleScriptu při spuštění
 - **Finder Sync Extension** (`OneUpExtension/`) — toolbar tlačítko, spouští AppleScript přes `NSUserAppleScriptTask`
+- **GitHub Pages** (`docs/`) — landing page (HTML/CSS, Clean design system)
 
 ## Jak funguje navigace
 
@@ -39,6 +40,39 @@ killall Finder
 ```
 
 Main app je nutné spustit alespoň jednou (nainstaluje skript). Poté může být zavřená.
+
+## Release a distribuce
+
+App je distribuována **bez Apple Developer certifikátu** (ad-hoc signing). Uživatelé musí při prvním spuštění obejít Gatekeeper: pravý klik → Open → Open Anyway, nebo `xattr -cr /Applications/OneUp.app`.
+
+Release workflow (`.github/workflows/release.yml`) se spustí při push tagu `v*`:
+1. Build & archive s ad-hoc signing (`CODE_SIGN_IDENTITY="-"`)
+2. Vytvoření DMG (`create-dmg`)
+3. Upload DMG do GitHub Release
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+Žádné GitHub Secrets nejsou potřeba — workflow nevyžaduje certifikát ani Apple ID.
+
+### GitHub Pages
+
+Landing page v `docs/index.html` — nasadit přes GitHub repo → Settings → Pages → Source: branch `master`, folder `/docs`.
+
+Dev server lokálně:
+```bash
+python3 -m http.server 3000 --directory docs
+```
+(nebo přes `.claude/launch.json` + `preview_start`)
+
+### Homebrew (budoucnost)
+
+Až bude první release: vytvořit repo `elipsoid-cz/homebrew-oneup` s `Casks/oneup.rb`.
+```
+brew tap elipsoid-cz/oneup && brew install --cask oneup
+```
 
 ## Prostředí
 

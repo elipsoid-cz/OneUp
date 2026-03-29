@@ -43,7 +43,7 @@ struct ContentView: View {
                 SetupStep(
                     number: 2,
                     title: "Add the button to the Finder toolbar",
-                    detail: "In Finder, choose View → Customize Toolbar… and drag the\n\"Go Up\" button to the desired position.",
+                    detail: "In Finder, choose View → Customize Toolbar… and drag the\n\"Go Up\" button to the desired position.\n\nTip: You can also rearrange toolbar buttons anytime\nby ⌘-dragging them.",
                     isDone: false
                 )
             }
@@ -62,7 +62,14 @@ struct ContentView: View {
                 .controlSize(.large)
 
                 if isExtensionEnabled {
-                    Label("Extension is enabled", systemImage: "checkmark.circle.fill")
+                    Button(action: { NSApplication.shared.terminate(nil) }) {
+                        Text("Quit OneUp")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 4)
+                    }
+                    .controlSize(.large)
+
+                    Label("Extension is enabled — you can safely quit this app.", systemImage: "checkmark.circle.fill")
                         .foregroundStyle(.green)
                         .font(.subheadline)
                 } else {

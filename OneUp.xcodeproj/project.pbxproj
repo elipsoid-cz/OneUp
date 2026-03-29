@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D48F1AAD0016060A66D22F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8648FDE1657369E83E2DAB1 /* ContentView.swift */; };
+		82467F00138F0AC299518988 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01A6709B14D4C81E0AB484A3 /* Assets.xcassets */; };
+		963F1DDC3CEEDE932C71FFAA /* OneUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5688C0F63B5AD68558E08750 /* OneUpApp.swift */; };
+		B4AB3CA6D2372759F54E9F8A /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951DE941F3E87A1A927C8689 /* FinderSync.swift */; };
+		D09A6DA8618CD9D68C30CE9B /* OneUpExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BE85F543DF92DFB8D3CBBF85 /* OneUpExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C03B181BDBD1ED9B6C9C54F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64DD9126BEA976567EC345A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D0057C6AE736A4C3F8256CC;
+			remoteInfo = OneUpExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B00D58C2AEBD0014FA2C5554 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D09A6DA8618CD9D68C30CE9B /* OneUpExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		01A6709B14D4C81E0AB484A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5688C0F63B5AD68558E08750 /* OneUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneUpApp.swift; sourceTree = "<group>"; };
+		951DE941F3E87A1A927C8689 /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
+		955DC52C65FA23E5D8304D6D /* OneUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneUp.entitlements; sourceTree = "<group>"; };
+		A8648FDE1657369E83E2DAB1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BE85F543DF92DFB8D3CBBF85 /* OneUpExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneUpExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCFE5D29299E53D44FCBB3DE /* OneUpExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneUpExtension.entitlements; sourceTree = "<group>"; };
+		E6CCA7D789929181A377C644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F3CA443B83E7D100000EAE1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F7E05300558E2C407D75C58B /* OneUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		16AE95D5ED1556B344A509B9 = {
+			isa = PBXGroup;
+			children = (
+				52B278CAF2E39A958EEAC384 /* OneUp */,
+				1974E810DACD659F76585A5D /* OneUpExtension */,
+				7B2F24AF3190D9577595E832 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1974E810DACD659F76585A5D /* OneUpExtension */ = {
+			isa = PBXGroup;
+			children = (
+				951DE941F3E87A1A927C8689 /* FinderSync.swift */,
+				E6CCA7D789929181A377C644 /* Info.plist */,
+				CCFE5D29299E53D44FCBB3DE /* OneUpExtension.entitlements */,
+			);
+			path = OneUpExtension;
+			sourceTree = "<group>";
+		};
+		52B278CAF2E39A958EEAC384 /* OneUp */ = {
+			isa = PBXGroup;
+			children = (
+				01A6709B14D4C81E0AB484A3 /* Assets.xcassets */,
+				A8648FDE1657369E83E2DAB1 /* ContentView.swift */,
+				F3CA443B83E7D100000EAE1A /* Info.plist */,
+				955DC52C65FA23E5D8304D6D /* OneUp.entitlements */,
+				5688C0F63B5AD68558E08750 /* OneUpApp.swift */,
+			);
+			path = OneUp;
+			sourceTree = "<group>";
+		};
+		7B2F24AF3190D9577595E832 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7E05300558E2C407D75C58B /* OneUp.app */,
+				BE85F543DF92DFB8D3CBBF85 /* OneUpExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D0057C6AE736A4C3F8256CC /* OneUpExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E3AF42690600FD8F39A99D5 /* Build configuration list for PBXNativeTarget "OneUpExtension" */;
+			buildPhases = (
+				F4FEADB7B67D9E73BF21648D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneUpExtension;
+			packageProductDependencies = (
+			);
+			productName = OneUpExtension;
+			productReference = BE85F543DF92DFB8D3CBBF85 /* OneUpExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		28AB93631FED4A41219DE6F6 /* OneUp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD6AA95733D9ADC972AA8643 /* Build configuration list for PBXNativeTarget "OneUp" */;
+			buildPhases = (
+				2FE590D79721AC9172740FBE /* Sources */,
+				57CBD19FC448AB08572E1B0A /* Resources */,
+				B00D58C2AEBD0014FA2C5554 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				554F5710E46F1AC89D73F78D /* PBXTargetDependency */,
+			);
+			name = OneUp;
+			packageProductDependencies = (
+			);
+			productName = OneUp;
+			productReference = F7E05300558E2C407D75C58B /* OneUp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		64DD9126BEA976567EC345A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					1D0057C6AE736A4C3F8256CC = {
+						ProvisioningStyle = Automatic;
+					};
+					28AB93631FED4A41219DE6F6 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6C6F5B8F06E16C79BB80C6B3 /* Build configuration list for PBXProject "OneUp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 16AE95D5ED1556B344A509B9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28AB93631FED4A41219DE6F6 /* OneUp */,
+				1D0057C6AE736A4C3F8256CC /* OneUpExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		57CBD19FC448AB08572E1B0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82467F00138F0AC299518988 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2FE590D79721AC9172740FBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D48F1AAD0016060A66D22F7 /* ContentView.swift in Sources */,
+				963F1DDC3CEEDE932C71FFAA /* OneUpApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4FEADB7B67D9E73BF21648D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4AB3CA6D2372759F54E9F8A /* FinderSync.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		554F5710E46F1AC89D73F78D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D0057C6AE736A4C3F8256CC /* OneUpExtension */;
+			targetProxy = C03B181BDBD1ED9B6C9C54F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		666823FE49444A22D7F77DA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OneUp/OneUp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = OneUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.oneup-app.OneUp";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		68D34146E8E61B1E6C63FF73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OneUp/OneUp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = OneUp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.oneup-app.OneUp";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		69C4EBBAF7FCAB07966442EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		8426322E35A8452A78753A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		DF91188F8BA0C4F0F66B3BE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneUpExtension/OneUpExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = OneUpExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.oneup-app.OneUp.Extension";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E7A583F06181AF910818544F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneUpExtension/OneUpExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = OneUpExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.github.oneup-app.OneUp.Extension";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2E3AF42690600FD8F39A99D5 /* Build configuration list for PBXNativeTarget "OneUpExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7A583F06181AF910818544F /* Debug */,
+				DF91188F8BA0C4F0F66B3BE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		6C6F5B8F06E16C79BB80C6B3 /* Build configuration list for PBXProject "OneUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69C4EBBAF7FCAB07966442EE /* Debug */,
+				8426322E35A8452A78753A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FD6AA95733D9ADC972AA8643 /* Build configuration list for PBXNativeTarget "OneUp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68D34146E8E61B1E6C63FF73 /* Debug */,
+				666823FE49444A22D7F77DA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 64DD9126BEA976567EC345A3 /* Project object */;
+}

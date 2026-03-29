@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Finder Sync Extensions must be sandboxed. -->
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<!--
+	    Allow sending Apple Events to Finder so we can tell it to navigate
+	    its front window to the parent directory (replicating Cmd+↑).
+	    Requires NSAppleEventsUsageDescription in the main app's Info.plist.
+	-->
+	<key>com.apple.security.automation.apple-events</key>
+	<array>
+		<string>com.apple.finder</string>
+	</array>
+</dict>
+</plist>

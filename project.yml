@@ -1,0 +1,72 @@
+name: OneUp
+options:
+  bundleIdPrefix: io.github.oneup-app
+  deploymentTarget:
+    macOS: "13.0"
+  xcodeVersion: "16.0"
+  generateEmptyDirectories: true
+  defaultConfig: Debug
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "13.0"
+    ALWAYS_SEARCH_USER_PATHS: NO
+    CODE_SIGN_ALLOW_ENTITLEMENTS_MODIFICATION: YES
+
+configs:
+  Debug: debug
+  Release: release
+
+targets:
+  OneUp:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: OneUp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.oneup-app.OneUp
+        CODE_SIGN_ENTITLEMENTS: OneUp/OneUp.entitlements
+        INFOPLIST_FILE: OneUp/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_HARDENED_RUNTIME: YES
+    dependencies:
+      - target: OneUpExtension
+        embed: true
+
+  OneUpExtension:
+    type: app-extension
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: OneUpExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.oneup-app.OneUp.Extension
+        CODE_SIGN_ENTITLEMENTS: OneUpExtension/OneUpExtension.entitlements
+        INFOPLIST_FILE: OneUpExtension/Info.plist
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_HARDENED_RUNTIME: YES
+
+schemes:
+  OneUp:
+    build:
+      targets:
+        OneUp: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+    archive:
+      config: Release
+
+  OneUpExtension:
+    build:
+      targets:
+        OneUpExtension: all
+    run:
+      config: Debug
+      askForAppToLaunch: true

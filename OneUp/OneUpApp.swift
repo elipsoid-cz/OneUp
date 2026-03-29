@@ -13,7 +13,7 @@ struct OneUpApp: App {
         }
         .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
-        .defaultSize(width: 520, height: 460)
+        .defaultSize(width: 520, height: 340)
     }
 
     private static func installExtensionScript() {

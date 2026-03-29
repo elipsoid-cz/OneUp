@@ -6,50 +6,34 @@ struct ContentView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            // Header
-            VStack(spacing: 16) {
-                ZStack {
-                    Circle()
-                        .fill(.blue.gradient)
-                        .frame(width: 80, height: 80)
-                    Image(systemName: "arrow.up")
-                        .font(.system(size: 36, weight: .semibold))
-                        .foregroundStyle(.white)
-                }
-                .padding(.top, 36)
-
-                Text("OneUp for Finder")
+            // Title
+            VStack(spacing: 6) {
+                Text("OneUp")
                     .font(.title.bold())
-
-                Text("Adds a **Go Up** button to the Finder toolbar so you can navigate\nto the parent folder with a single click — just like ⌘↑.")
-                    .multilineTextAlignment(.center)
+                Text("Go Up button for Finder toolbar")
+                    .font(.subheadline)
                     .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
             }
-            .padding(.horizontal, 40)
-
-            Divider()
-                .padding(.vertical, 28)
+            .padding(.top, 28)
+            .padding(.bottom, 24)
 
             // Setup steps
             VStack(alignment: .leading, spacing: 20) {
                 SetupStep(
                     number: 1,
                     title: "Enable the extension",
-                    detail: "Click below to open System Settings, then enable OneUp under\nGeneral → Login Items & Extensions → Finder Extensions.",
+                    detail: "System Settings → General → Login Items\n& Extensions → Finder Extensions",
                     isDone: isExtensionEnabled
                 )
 
                 SetupStep(
                     number: 2,
-                    title: "Add the button to the Finder toolbar",
-                    detail: "In Finder, choose View → Customize Toolbar… and drag the\n\"Go Up\" button to the desired position.\n\nTip: You can also rearrange toolbar buttons anytime\nby ⌘-dragging them.",
+                    title: "Add to the Finder toolbar",
+                    detail: "In Finder, choose View → Customize Toolbar…\nand drag \"Go Up\" to the toolbar.",
                     isDone: false
                 )
             }
             .padding(.horizontal, 40)
-
-            Spacer(minLength: 28)
 
             // CTA
             VStack(spacing: 12) {
@@ -63,23 +47,20 @@ struct ContentView: View {
 
                 if isExtensionEnabled {
                     Button(action: { NSApplication.shared.terminate(nil) }) {
-                        Text("Quit OneUp")
+                        Text("Finish Setup")
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 4)
                     }
                     .controlSize(.large)
 
-                    Label("Extension is enabled — you can safely quit this app.", systemImage: "checkmark.circle.fill")
+                    Label("Extension is enabled — the button works without this app running.", systemImage: "checkmark.circle.fill")
                         .foregroundStyle(.green)
                         .font(.subheadline)
-                } else {
-                    Text("You can quit this app after enabling the extension.")
-                        .font(.caption)
-                        .foregroundStyle(.tertiary)
                 }
             }
             .padding(.horizontal, 40)
-            .padding(.bottom, 32)
+            .padding(.top, 24)
+            .padding(.bottom, 28)
         }
         .frame(width: 520)
         .onAppear { refreshStatus() }

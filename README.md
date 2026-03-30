@@ -35,7 +35,7 @@ A tiny macOS app that adds a **Go Up** button to the Finder toolbar — one clic
 ### Option B — Build from source
 
 ```bash
-git clone https://github.com/marekcais/OneUp.git
+git clone https://github.com/elipsoid-cz/OneUp.git
 cd OneUp
 brew install xcodegen        # skip if already installed
 xcodegen generate
@@ -46,15 +46,16 @@ Then build and run the `OneUp` scheme in Xcode (⌘R). Sign in with your Apple I
 
 ## Uninstall
 
-1. Delete `/Applications/OneUp.app`
-2. The extension is removed automatically along with the app
+Open OneUp and click **Uninstall OneUp…** at the bottom of the window. This deletes the helper script, restarts Finder, and moves the app to Trash.
+
+Alternatively, just delete `/Applications/OneUp.app` — the extension is removed automatically along with the app.
 
 ## How it works
 
 OneUp uses the **Finder Sync Extension** API — the only Apple-supported way to add buttons to the Finder toolbar. When you click the button:
 
-1. The extension calls an AppleScript snippet that tells Finder's front window to navigate to `parent of target`
-2. If AppleScript is unavailable (e.g., in certain dialog contexts) it falls back to opening the parent folder via `NSWorkspace`
+1. The extension runs an AppleScript via `NSUserAppleScriptTask` that tells Finder's front window to navigate to `parent of target`
+2. macOS prompts for Automation permission on the first click — after that it works silently
 
 The main app (`OneUp.app`) is only needed during initial setup. Once the extension is enabled it runs independently and the main app can be quit.
 

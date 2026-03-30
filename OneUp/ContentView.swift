@@ -3,6 +3,7 @@ import FinderSync
 
 struct ContentView: View {
     @State private var isExtensionEnabled = false
+    @State private var showUninstallConfirmation = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -60,9 +61,26 @@ struct ContentView: View {
             }
             .padding(.horizontal, 40)
             .padding(.top, 24)
-            .padding(.bottom, 28)
+            .padding(.bottom, 20)
+
+            Divider()
+                .padding(.horizontal, 40)
+
+            Button("Uninstall OneUp\u{2026}") {
+                showUninstallConfirmation = true
+            }
+            .buttonStyle(.plain)
+            .font(.footnote)
+            .foregroundStyle(.secondary)
+            .padding(.vertical, 12)
         }
         .frame(width: 520)
+        .alert("Uninstall OneUp?", isPresented: $showUninstallConfirmation) {
+            Button("Uninstall", role: .destructive) { performUninstall() }
+            Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("The AppleScript file will be deleted and OneUp will be moved to the Trash. You can also disable the extension in System Settings → Privacy & Security → Extensions → Finder Extensions.")
+        }
         .onAppear { refreshStatus() }
         // Re-check when the app comes back to the foreground (user may have
         // just toggled the extension in System Settings).
@@ -75,6 +93,29 @@ struct ContentView: View {
 
     private func refreshStatus() {
         isExtensionEnabled = FIFinderSyncController.isExtensionEnabled
+    }
+
+    private func performUninstall() {
+        // 1. Delete AppleScript file
+        let scriptURL = FileManager.default.homeDirectoryForCurrentUser
+            .appendingPathComponent("Library/Application Scripts/io.github.oneup-app.OneUp.Extension/GoUp.applescript")
+        try? FileManager.default.removeItem(at: scriptURL)
+
+        // 2. Restart Finder so the toolbar button disappears immediately
+        let killFinder = Process()
+        killFinder.executableURL = URL(fileURLWithPath: "/usr/bin/killall")
+        killFinder.arguments = ["Finder"]
+        try? killFinder.run()
+
+        // 3. Move the app bundle to Trash (only when running from /Applications)
+        let bundleURL = Bundle.main.bundleURL
+        guard bundleURL.path.hasPrefix("/Applications/") else {
+            NSApplication.shared.terminate(nil)
+            return
+        }
+        NSWorkspace.shared.recycle([bundleURL]) { _, _ in
+            NSApplication.shared.terminate(nil)
+        }
     }
 
     private func openExtensionSettings() {

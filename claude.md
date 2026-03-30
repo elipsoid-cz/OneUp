@@ -74,6 +74,18 @@ Až bude první release: vytvořit repo `elipsoid-cz/homebrew-oneup` s `Casks/on
 brew tap elipsoid-cz/oneup && brew install --cask oneup
 ```
 
+## Odinstalace
+
+Žádný automatický uninstall mechanismus zatím neexistuje. Manuální postup:
+
+1. Zavřít OneUp a odebrat z Login Items (System Settings → General → Login Items)
+2. Zakázat extension — System Settings → Privacy & Security → Extensions → Finder Extensions
+3. Smazat `OneUp.app` z `/Applications`
+4. Smazat AppleScript: `~/Library/Application Scripts/io.github.oneup-app.OneUp.Extension/GoUp.applescript`
+5. Restartovat Finder: `killall Finder`
+
+Do budoucna: přidat tlačítko "Uninstall" přímo do appky.
+
 ## Prostředí
 
 - macOS 15 (Sequoia), Apple Silicon

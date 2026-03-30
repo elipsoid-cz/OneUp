@@ -130,10 +130,9 @@
       border: 1px solid var(--border);
     }
     .btn-secondary:hover { background: var(--border); }
-    .req {
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--muted);
+    .hero p.req {
+      font-size: 11px;
+      margin: 24px auto 0;
     }
 
     /* SCREENSHOT */
@@ -264,19 +263,22 @@
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
     Free &amp; Open Source
   </div>
-  <h1>The <span>Go Up</span> button<br>Finder forgot to add</h1>
+  <h1>The <span>Go Up</span> button<br>Apple forgot to add</h1>
   <p>One click to navigate to the parent folder — right from the Finder toolbar. Just like ⌘↑, but always visible.</p>
   <div class="btn-group">
     <a class="btn btn-primary" id="download-btn" href="https://github.com/elipsoid-cz/OneUp/releases/latest">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-      Download for macOS
+      Download OneUp
     </a>
     <a class="btn btn-secondary" href="https://github.com/elipsoid-cz/OneUp">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
       View on GitHub
     </a>
   </div>
-  <p class="req">macOS 13 Ventura or later &nbsp;·&nbsp; Apple Silicon &amp; Intel</p>
+  <div style="margin-top: 24px;">
+    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="elipsoid" data-color="#FFDD00" data-emoji="🍎" data-font="Cookie" data-text="Help fund my dev account" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+  </div>
+
 </section>
 
 <div class="screenshot-wrap">
@@ -302,7 +304,10 @@
       <div class="step-num">2</div>
       <div class="step-body">
         <h3>Bypass Gatekeeper</h3>
-        <p>Because OneUp is not yet notarized, macOS will block the first launch. Right-click <strong>OneUp.app</strong> in Finder, choose "Open", then click "Open Anyway" in the dialog.</p>
+        <p>Because OneUp is not yet notarized, macOS will block the first launch. Right-click <strong>OneUp.app</strong> in Finder, choose "Open", then click "Open Anyway" in the dialog. Notarization requires an Apple Developer account — which costs $99/year.</p>
+        <div style="margin-top: 16px;">
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="elipsoid" data-color="#FFDD00" data-emoji="🍎" data-font="Cookie" data-text="Help fund my dev account" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
+        </div>
       </div>
     </div>
     <div class="step">
@@ -340,7 +345,7 @@
       if (dmg) {
         const btn = document.getElementById('download-btn');
         btn.href = dmg.browser_download_url;
-        btn.innerHTML = btn.innerHTML.replace('Download for macOS', `Download ${data.tag_name}`);
+        btn.innerHTML = btn.innerHTML.replace('Download for macOS', `Download OneUp`);
       }
     })
     .catch(() => {}); // fallback: button already points at /releases/latest

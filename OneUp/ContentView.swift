@@ -18,45 +18,56 @@ struct ContentView: View {
             .padding(.top, 28)
             .padding(.bottom, 24)
 
-            // Setup steps
-            VStack(alignment: .leading, spacing: 20) {
-                SetupStep(
-                    number: 1,
-                    title: "Enable the extension",
-                    detail: "System Settings → General → Login Items\n& Extensions → Finder Extensions",
-                    isDone: isExtensionEnabled
-                )
-
-                SetupStep(
-                    number: 2,
-                    title: "Add to the Finder toolbar",
-                    detail: "In Finder, choose View → Customize Toolbar…\nand drag \"Go Up\" to the toolbar.",
-                    isDone: false
-                )
-            }
-            .padding(.horizontal, 40)
-
-            // CTA
-            VStack(spacing: 12) {
-                Button(action: openExtensionSettings) {
-                    Label("Open Extensions Settings", systemImage: "gear")
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 4)
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-
+            // Status
+            VStack(spacing: 16) {
                 if isExtensionEnabled {
+                    Label("The Go Up button is ready in your Finder toolbar.", systemImage: "checkmark.circle.fill")
+                        .foregroundStyle(.green)
+                        .font(.body)
+
+                    Text("You can close this app — the button works without it.\nThe first click will ask for permission to control Finder.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+
                     Button(action: { NSApplication.shared.terminate(nil) }) {
-                        Text("Finish Setup")
+                        Text("Done")
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 4)
                     }
+                    .buttonStyle(.borderedProminent)
                     .controlSize(.large)
 
-                    Label("Extension is enabled — the button works without this app running.", systemImage: "checkmark.circle.fill")
-                        .foregroundStyle(.green)
+                    Link(destination: URL(string: "https://buymeacoffee.com/elipsoid")!) {
+                        HStack(spacing: 6) {
+                            Text("🍎")
+                            Text("Help fund my dev account")
+                                .font(.system(size: 14, weight: .semibold))
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                        .background(Color(red: 1.0, green: 0.867, blue: 0.0))
+                        .foregroundColor(.black)
+                        .cornerRadius(8)
+                    }
+                    .buttonStyle(.plain)
+                } else {
+                    Label("Extension could not be activated.", systemImage: "exclamationmark.triangle.fill")
+                        .foregroundStyle(.orange)
+                        .font(.body)
+
+                    Text("This can happen on some macOS configurations.\nPlease open an issue on GitHub so we can help.")
                         .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+
+                    Link(destination: URL(string: "https://github.com/elipsoid-cz/OneUp/issues")!) {
+                        Label("Report Issue on GitHub", systemImage: "arrow.up.right")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 4)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
                 }
             }
             .padding(.horizontal, 40)
@@ -118,12 +129,6 @@ struct ContentView: View {
         }
     }
 
-    private func openExtensionSettings() {
-        // macOS 13+: opens General > Login Items & Extensions
-        if let url = URL(string: "x-apple.systempreferences:com.apple.LoginItems-Settings.extension") {
-            NSWorkspace.shared.open(url)
-        }
-    }
 }
 
 // MARK: - Setup Step View

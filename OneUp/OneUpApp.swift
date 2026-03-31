@@ -5,6 +5,7 @@ struct OneUpApp: App {
 
     init() {
         Self.installExtensionScript()
+        Self.enableExtensionViaPluginKit()
     }
 
     var body: some Scene {
@@ -35,6 +36,17 @@ struct OneUpApp: App {
             try content.write(to: scriptURL, atomically: true, encoding: .utf8)
         } catch {
             NSLog("OneUp: Failed to install GoUp script: \(error)")
+        }
+    }
+
+    private static func enableExtensionViaPluginKit() {
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: "/usr/bin/pluginkit")
+        process.arguments = ["-e", "use", "-i", "io.github.oneup-app.OneUp.Extension"]
+        do {
+            try process.run()
+        } catch {
+            NSLog("OneUp: Failed to enable extension via pluginkit: \(error)")
         }
     }
 }

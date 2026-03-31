@@ -29,6 +29,7 @@ struct ContentView: View {
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
 
                     Button(action: { NSApplication.shared.terminate(nil) }) {
                         Text("Done")

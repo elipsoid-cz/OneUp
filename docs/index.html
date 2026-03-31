@@ -243,6 +243,44 @@
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--text); }
 
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 36px 32px 28px;
+      max-width: 560px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .modal .btn { width: 100%; justify-content: center; }
+    .modal .section-title { text-align: center; }
+    .modal .section-label { text-align: center; }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--muted);
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+    .modal-close:hover { color: var(--text); }
+
     @media (max-width: 480px) {
       .btn-group { flex-direction: column; align-items: center; }
     }
@@ -266,17 +304,14 @@
   <h1>The <span>Go Up</span> button<br>Apple forgot to add</h1>
   <p>One click to navigate to the parent folder — right from the Finder toolbar. Just like ⌘↑, but always visible.</p>
   <div class="btn-group">
-    <a class="btn btn-primary" id="download-btn" href="https://github.com/elipsoid-cz/OneUp/releases/latest">
+    <button class="btn btn-primary" id="download-trigger">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
       Download OneUp
-    </a>
+    </button>
     <a class="btn btn-secondary" href="https://github.com/elipsoid-cz/OneUp">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
       View on GitHub
     </a>
-  </div>
-  <div style="margin-top: 24px;">
-    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="elipsoid" data-color="#FFDD00" data-emoji="🍎" data-font="Cookie" data-text="Help fund my dev account" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
   </div>
 
 </section>
@@ -290,24 +325,31 @@
 
 <section class="install" id="install">
   <p class="section-label">Installation</p>
-  <h2 class="section-title">Ready in 2 steps</h2>
+  <h2 class="section-title">Ready in 3 steps</h2>
 
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-body">
-        <h3>Download &amp; open</h3>
-        <p>Download the DMG from the link above, open it, and run <strong>OneUp.app</strong>.</p>
+        <h3>Move to Applications</h3>
+        <p>Download the DMG from the link above, open it, and drag <strong>OneUp.app</strong> to your <code>/Applications</code> folder.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-body">
-        <h3>Bypass Gatekeeper</h3>
-        <p>Because OneUp is not yet notarized, macOS will block the first launch. Try to open the app, then go to <strong>System Settings → Privacy &amp; Security</strong>, scroll down, and click <strong>"Open Anyway"</strong>. The <strong>Go Up</strong> button appears in your Finder toolbar automatically. Notarization requires an Apple Developer account — which costs $99/year.</p>
+        <h3>Open &amp; allow</h3>
+        <p>Open OneUp — macOS will block it because it's not notarized. Go to <strong>System Settings → Privacy &amp; Security</strong>, scroll down, and click <strong>"Open Anyway"</strong>. Notarization requires an Apple Developer account — which costs $99/year.</p>
         <div style="margin-top: 16px;">
           <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="elipsoid" data-color="#FFDD00" data-emoji="🍎" data-font="Cookie" data-text="Help fund my dev account" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff"></script>
         </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Done</h3>
+        <p>The <strong>Go Up</strong> button appears in your Finder toolbar automatically. You can close OneUp — the button stays.</p>
       </div>
     </div>
   </div>
@@ -322,17 +364,68 @@
   </p>
 </footer>
 
+<div class="modal-overlay" id="install-modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <p class="section-label">Installation</p>
+    <h2 class="section-title" style="margin-bottom: 24px;">Ready in 3 steps</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Move to Applications</h3>
+          <p>Open the DMG and drag <strong>OneUp.app</strong> to your <code>/Applications</code> folder.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Open &amp; allow</h3>
+          <p>Open OneUp — macOS will block it, it's not notarized yet. Go to <strong>System Settings → Privacy &amp; Security</strong>, scroll down, and click <strong>"Open Anyway"</strong>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Done</h3>
+          <p>The <strong>Go Up</strong> button appears in your Finder toolbar automatically. You can close OneUp — the button stays.</p>
+        </div>
+      </div>
+    </div>
+
+    <a class="btn btn-primary" id="download-btn" href="https://github.com/elipsoid-cz/OneUp/releases/latest" style="margin-top: 8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      Got it, download OneUp now
+    </a>
+  </div>
+</div>
+
 <script>
-  // Point download button at the latest DMG asset
+  // Resolve latest DMG URL
+  var dmgUrl = 'https://github.com/elipsoid-cz/OneUp/releases/latest';
   fetch('https://api.github.com/repos/elipsoid-cz/OneUp/releases/latest')
     .then(r => r.json())
     .then(data => {
       const dmg = data.assets && data.assets.find(a => a.name.endsWith('.dmg'));
       if (dmg) {
-        document.getElementById('download-btn').href = dmg.browser_download_url;
+        dmgUrl = dmg.browser_download_url;
+        document.getElementById('download-btn').href = dmgUrl;
       }
     })
-    .catch(() => {}); // fallback: button already points at /releases/latest
+    .catch(() => {});
+
+  // Modal open/close
+  var modal = document.getElementById('install-modal');
+  document.getElementById('download-trigger').addEventListener('click', function() {
+    modal.classList.add('open');
+  });
+  document.getElementById('modal-close').addEventListener('click', function() {
+    modal.classList.remove('open');
+  });
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) modal.classList.remove('open');
+  });
 </script>
 
 </body>
